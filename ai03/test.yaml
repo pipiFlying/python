@@ -1,0 +1,41 @@
+config:
+  os: windows
+  role: admin
+languages:
+  - Java
+  - C++
+  - Python
+user:
+  -
+    id: 1
+    name: admin
+    token: a
+  - id: 2
+    name: com
+    token: b
+
+# 转成 json 文件格式
+
+# {
+#   "config": {
+#     "os": "windows",
+#     "role": "admin"
+#   },
+#   "languages": [
+#     "Java",
+#     "C++",
+#     "Python"
+#   ],
+#   "user": [
+#     {
+#       "id": 1,
+#       "name": "admin",
+#       "token": "a"
+#     },
+#     {
+#       "id": 2,
+#       "name": "com",
+#       "token": "b"
+#     }
+#   ]
+# }

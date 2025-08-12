@@ -1,0 +1,74 @@
+# 系统基础配置
+system:
+  name: "example-api"          # 系统名称
+  env: "production"            # 运行环境（dev/test/staging/production）
+  port: 8080                   # 服务端口
+  timezone: "Asia/Shanghai"    # 时区
+  debug: false                 # 是否开启调试模式
+
+# 服务器配置
+server:
+  host: "0.0.0.0"              # 监听地址（0.0.0.0 表示所有网络接口）
+  max_connections: 1000        # 最大连接数
+  timeout: 30                  # 请求超时时间（秒）
+  keep_alive: true             # 是否启用长连接
+
+# 数据库配置
+database:
+  main:
+    type: "mysql"              # 数据库类型（mysql/postgresql/sqlite）
+    host: "127.0.0.1"          # 数据库主机
+    port: 3306                 # 数据库端口
+    username: "db_user"        # 数据库用户名
+    password: "secure_password" # 数据库密码
+    database: "app_db"         # 数据库名称
+    charset: "utf8mb4"         # 字符集
+    pool_size: 10              # 连接池大小
+    max_retries: 3             # 最大重试次数
+  cache:
+    type: "redis"              # 缓存类型（redis/memcached）
+    host: "127.0.0.1"          # 缓存主机
+    port: 6379                 # 缓存端口
+    password: ""               # 缓存密码（可选）
+    db: 0                      # Redis 数据库索引
+    ttl: 3600                  # 默认缓存过期时间（秒）
+
+# 日志配置
+logging:
+  level: "info"                # 日志级别（debug/info/warning/error/fatal）
+  format: "json"               # 日志格式（json/text）
+  output: "stdout"             # 日志输出（stdout/file）
+  file_path: "/var/log/app.log" # 日志文件路径（如果 output=file）
+  max_size: 100                # 单个日志文件最大大小（MB）
+  max_backups: 5               # 最多保留的日志文件数量
+  max_age: 7                   # 日志文件保留天数
+
+# API 配置
+api:
+  rate_limit: 100              # 每分钟请求限制（QPS）
+  cors:
+    allowed_origins: ["*"]     # 允许的跨域来源（* 表示所有）
+    allowed_methods: ["GET", "POST", "PUT", "DELETE"] # 允许的 HTTP 方法
+    allowed_headers: ["Content-Type", "Authorization"] # 允许的请求头
+
+# 第三方服务配置
+services:
+  payment_gateway:
+    url: "https://api.payment.com/v1"
+    api_key: "payment_api_key_123"
+    timeout: 10                # 超时时间（秒）
+  sms_service:
+    provider: "twilio"
+    account_sid: "ACxxxxxx"
+    auth_token: "yyyyyy"
+    from_number: "+1234567890"
+
+# 安全配置
+security:
+  jwt:
+    secret: "your_jwt_secret_key"  # JWT 密钥
+    expires_in: 3600               # Token 有效期（秒）
+  csrf:
+    enabled: true                  # 是否启用 CSRF 防护
+  cors:
+    enabled: true                  # 是否启用 CORS
