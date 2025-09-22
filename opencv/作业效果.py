@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-from altair import param
 
 x0, y0 = 0, 0
 
