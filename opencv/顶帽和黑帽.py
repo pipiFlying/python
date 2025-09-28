@@ -24,7 +24,7 @@ tophat_img = cv2.morphologyEx(img, cv2.MORPH_TOPHAT, kernel, iterations=5)
 # 黑帽运算
 blackhat_img = cv2.morphologyEx(b_img, cv2.MORPH_BLACKHAT, kernel, iterations=5)
 
-cv2.imshow('win', tophat_img)
+# cv2.imshow('win', tophat_img)
 cv2.imshow('win', blackhat_img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
