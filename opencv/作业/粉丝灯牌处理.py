@@ -28,6 +28,9 @@ bg_gray = cv2.cvtColor(bg, cv2.COLOR_BGR2GRAY)
 faces = classifiers.detectMultiScale(bg_gray, 1.1, 5)
 print(faces)
 
+print(mask.shape)
+print(fans.shape)
+
 fans_h, fans_w, C = fans.shape
 (x, y, w, h) = faces[0]
 roi = bg[y - fans_h:y, x:x + fans_w]

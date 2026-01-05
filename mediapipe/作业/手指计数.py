@@ -47,7 +47,6 @@ while cap.isOpened():
 
     cv2.putText(frame, f'{count}', (100, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv2.imshow('frame', frame)
-
     if cv2.waitKey(25) == 27:
         break
 
